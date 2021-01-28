@@ -33,8 +33,39 @@
 
 <body>
 
+    <nav class="navbar navbar-dark bg-dark" style="position:fixed">
+        <a class="navbar-brand" href="#">Never expand</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </nav>
 
-<section class="mb-0" style="margin-top: 55px;height:40px;background:rgba(0,0,0,.8);color:#fff;padding-left:16px;padding-top:10px">
+<section class="mb-0" style="margin-top: 0px;height:40px;background:rgba(0,0,0,.8);color:#fff;padding-left:16px;padding-top:10px;position:fixed">
     <div class="">
         <h6 class="">Resume</h6>
     </div>
@@ -43,7 +74,7 @@
 
 
 
-<div id="qContainer"  style="width:100%; max-height: calc(100vh - 220px);overflow:auto" onscroll="scrollFunction()">
+<div id="qContainer"  style="width:100%; max-height: calc(100vh - 220px);overflow:auto" onscroll="scrollFunction()" >
     <div id="qHeader" unselectable="on" style="height:220px;width: calc(100vw - 0px) ;background:#7c7c7c;transition: 0.0s;position:fixed;z-index:100;padding:0px 10px;" >
         <!--        <button onclick="getsectionpos()">pos</button>-->
         <!-- <div id="pos"></div> -->
