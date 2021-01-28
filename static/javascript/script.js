@@ -81,7 +81,7 @@ function scrollFunction() {
     getsectionpos(sections);
 
 
-    if ($("#qContainer").scrollTop() >= 0  && $("#qContainer").scrollTop() <180 ) { //
+    if ($("#qContainer").scrollTop() >= -1000  && $("#qContainer").scrollTop() <180 ) { //
 
         $("#qHeader").height(220- $("#qContainer").scrollTop());        
         $("#qHeader").css("opacity", "1");
