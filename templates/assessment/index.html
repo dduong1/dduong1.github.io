@@ -1,0 +1,209 @@
+{% extends 'assessment/base.html' %}
+
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+
+<section class="mb-0" style="margin-top: 55px;height:40px;background:rgba(0,0,0,.8);color:#fff;padding-left:16px;padding-top:10px">
+    <div class="">
+        <h6 class="">Assessment</h6>
+    </div>
+</section>
+
+
+
+
+<div id="qContainer"  style="width:100%; max-height: calc(100vh - 100px);overflow:auto" onscroll="scrollFunction()">
+    <div id="qHeader" style="height:150px;width: calc(100vw - 17px) ;background:#363636;transition: 0.0s;position:fixed;z-index:100;padding:0px 50px;color:#EFEFEF" >
+        <!--        <button onclick="getsectionpos()">pos</button>-->
+
+
+        <div id="stats-container" style="display:flex; overflow:hidden;flex-direction:row;gap:5px">
+            <div class="card" style="flex-basis:100%">
+                <div class="card-body">
+                    <p style="color:black;margin:3px 0px;"><b>Section 4</b></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100" style="width:30%;background-color:#DC4405">
+                            30%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card"  style="flex-basis:100%">
+                <div class="card-body">
+                    <p style="color:black;margin:3px 0px;"><b>Section 5</b></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="68"
+                             aria-valuemin="0" aria-valuemax="100" style="width:68%;background-color:#F3D03E">
+                            68%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card"  style="flex-basis:100%">
+                <div class="card-body">
+                    <p style="color:black;margin:3px 0px;"><b>Section 6</b></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                             aria-valuemin="0" aria-valuemax="100" style="width:0%;background-color:#DC4405">
+                            0%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card"  style="flex-basis:100%">
+                <div class="card-body">
+                    <p style="color:black;margin:3px 0px;"><b>Section 7</b></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
+                             aria-valuemin="0" aria-valuemax="100" style="width:90%;background-color:#00B74F">
+                            90%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card"  style="flex-basis:100%">
+                <div class="card-body">
+                    <p style="color:black;margin:3px 0px;"><b>Section 8</b></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="48"
+                             aria-valuemin="0" aria-valuemax="100" style="width:48%;background-color:#FE5000">
+                            48%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="section-top" style="margin:7px 10px;">
+            <b>
+
+            </b>
+        </div>
+    </div>
+
+
+
+    <div class="" style="width:100%;padding-top:150px;" >
+
+        <div data-spy="scroll"  data-target="#navbar-example2" data-offset="10"
+             style="height:100%;width:100%;overflow-z:scroll;font-size:14px;display:flex;flex-direction:column;position: relative;z-index:0; ">
+
+
+
+
+
+            {% for b in data  %}
+            {% if b.type == 'Section' %}
+            <div class="template__section" style="display:flex; flex-direction:row;margin-left:50px;margin-bottom:5px; margin-top:5px;">
+                {% if b.level == 1 %}
+                <div style="width:200px;font-size:18px;background:#4e8fd4;padding-left:20px;"><b>SECTION {{b.section_index}}</b></div>
+                <div style="width:90%;margin-left:0px;font-size:18px;background:#4e8fd4"><b>{{b.text}}</b></div>
+                {% elif b.level == 2 %}
+                <div style="width:200px;font-size:16px;background:#afc5db;padding-left:20px;"><b>{{b.section_index}}</b></div>
+                <div style="width:800px;margin-left:0px;background:#afc5db;font-size:16px;"><b>{{b.text}}</b></div>
+                {% elif b.level == 3 %}
+                <div style="width:200px;font-size:14px;background:#e1e6eb;padding-left:20px;"><b>{{b.section_index}}</b></div>
+                <div style="width:800px;margin-left:0px;background:#e1e6eb;font-size:14px;"><b>{{b.text}}</b></div>
+                <div style="width:300px; margin-left:200px;">
+                    <div class="form-group" style="margin-bottom: 0px !important">
+                        <textarea id="{{b.assQuestion.pk}}_comment" style="font-size:10px;" class="form-control"
+                                  id="exampleFormControlTextarea1" rows="1" onblur="postComment('{{b.assQuestion.pk}}')">{{b.assQuestion.comment}}</textarea>
+                    </div>
+                </div>
+                {% else %}
+                <div style="width:200px;font-size:12px;background:#f0f2f5;padding-left:20px;"><b>{{b.section_index}}</b></div>
+                <div style="width:800px;margin-left:0px;background:#f0f2f5;font-size:12px;"><b>{{b.text}}</b></div>
+
+                {% endif %}
+
+            </div>
+            {% else %}
+            {% if b.type == 'Superquestion' %}
+            <div style="display:flex; flex-direction:row;margin-left:50px;margin-top:15px;">
+                <div style="width:50px"></div>
+                <div style="width:150px"></div>
+                <div style="width:700px"><b>{{b.text}}</b> </div>
+            </div>
+            {% else %}
+            <div style="display:flex; flex-direction:row;margin-left:50px">
+                <div class="text-center" style="width:50px;border :1px solid #F4F4F4">{{b.regulatory_reference}}</div>
+                <div class="text-center" style="width:150px;border:1px solid #F4F4F4">{{b.category}}</div>
+                <div style="width:700px;border: 1px solid #F4F4F4">{{b.text}} </div>
+                <div>
+                    <div class="form-check-inline text-center">
+
+                        {% if b.assQuestion.answer == 'Not applicable' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_0" value="option0" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},0,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_0" value="option0" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},0,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+
+                        {% if b.assQuestion.answer == 'Not in place' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_1" value="option1" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},1,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_1" value="option1" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},1,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+
+                        {% if b.assQuestion.answer == 'In place but not compliant' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_2" value="option2" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},2,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_2" value="option2" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},2,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+
+                        {% if b.assQuestion.answer == 'Partially compliant with significant adjustments required' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_3" value="option3" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},3,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_3" value="option3" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},3,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+
+                        {% if b.assQuestion.answer == 'Partially compliant with minor adjustments required' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_4" value="option4" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},4,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_4" value="option4" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},4,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+
+                        {% if b.assQuestion.answer == 'Fully compliant' %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_5" value="option5" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},5,'{{b.assQuestion.pk}}')" checked="checked">
+                        {% else %}
+                        <input style= "width:30px;" class="form-check-input position-static" type="radio" id="{{b.assQuestion.pk}}_5" value="option5" aria-label="..." name="{{b.order}}_exampleRadios" onchange="postUpdateBox({{b.order}},5,'{{b.assQuestion.pk}}')">
+                        {% endif %}
+                    </div>
+                </div>
+                <div id={{b.order}} style="width:300px;font-size:11px;">
+                    {% if b.assQuestion.answer == 'Not applicable' %}
+                    <p class="text-success">Not applicable</p>
+                    {% elif b.assQuestion.answer == 'Not in place' %}
+                    <p class="text-danger">Not in place</p>
+                    {% elif b.assQuestion.answer == 'In place but not compliant' %}
+                    <p class="text-warning">In place but not compliant</p>
+                    {% elif b.assQuestion.answer == 'Partially compliant with significant adjustments required' %}
+                    <p class="text-secondary">Partially compliant with significant adjustments required</p>
+                    {% elif b.assQuestion.answer == 'Partially compliant with minor adjustments required' %}
+                    <p class="text-info">Partially compliant with minor adjustments required</p>
+                    {% elif b.assQuestion.answer == 'Fully compliant' %}
+                    <p class="text-success">Fully compliant</p>
+                    {% else %}
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+            {% endif %}
+            {% endif %}
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
