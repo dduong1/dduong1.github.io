@@ -81,18 +81,18 @@ function scrollFunction() {
     getsectionpos(sections);
 
 
-    if ($("#qContainer").scrollTop() >= 0  && $("#qContainer").scrollTop() <130 ) { //
+    if ($("#qContainer").scrollTop() >= 0  && $("#qContainer").scrollTop() <160 ) { //
 
-        $("#qHeader").height(170- $("#qContainer").scrollTop());        
+        $("#qHeader").height(200- $("#qContainer").scrollTop());        
         $("#qHeader").css("opacity", "1");
         $("#qHeader").css("blur", "0px");
         
-        $("#stats-container").height(170- $("#qContainer").scrollTop());}
+        $("#stats-container").height(200- $("#qContainer").scrollTop());}
 
-    else if ($("#qContainer").scrollTop() >= 130 && $("#qContainer").scrollTop() < 170){
-        var c = 1-($("#qContainer").scrollTop()-130)/39;
+    else if ($("#qContainer").scrollTop() >= 160 && $("#qContainer").scrollTop() < 200){
+        var c = 1-($("#qContainer").scrollTop()-160)/39;
         $("#stats-container").css("color","rgba(239, 239, 239,"+ c +")") // " + 1-($("#qContainer").scrollTop()-130)/39 + ")");
-        console.log(1-($("#qContainer").scrollTop()-130)/39 );
+        console.log(1-($("#qContainer").scrollTop()-160)/39 );
     }
     
     else {
