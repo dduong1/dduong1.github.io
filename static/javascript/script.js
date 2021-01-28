@@ -52,7 +52,7 @@ function postComment(aID){
 
 function getLab(arr){
     //console.log($("#qContainer").scrollTop() + "        " + (arr.offsetTop).toString());
-    return (arr.offsetTop) <= $("#qContainer").scrollTop();
+    return (arr.offsetTop) <= $("#qContainer").scrollTop()-180;
 }
 
 
@@ -65,20 +65,20 @@ function getsectionpos(sections){
     if (tmp >=0){
         zz = sections.length - 1 - tmp ;
         
-        //$('#section-top').html('<b>' + sections[zz].textContent + '</b>' ); //sections[zz].firstElementChild.textContent + ' ' +
+        // $('#section-top').html('<b>' + sections[zz].textContent + '</b>' ); //sections[zz].firstElementChild.textContent + ' ' +
     }else
     {
         zz = 0 ;
     }
-    //console.log(sections[zz].firstElementChild.textContent);
-    
+    // console.log(sections[zz].firstElementChild.textContent);
+    $('#section-top').html('<b>' + sections[zz].textContent + '</b>' ); 
 }
 
 
 function scrollFunction() {
     const sections = $(".template__section");
     // console.log($("#qContainer").scrollTop() );
-    getsectionpos(sections);
+    
     // $("#pos").empty();
     // $("#pos").html($("#qContainer").scrollTop());
 
@@ -88,16 +88,26 @@ function scrollFunction() {
         $("#qHeader").css("opacity", "1");
         $("#qHeader").css("blur", "0px");
         
-        $("#stats-container").height(220- $("#qContainer").scrollTop());}
+        $("#stats-container").height(220- $("#qContainer").scrollTop());
+        $('#section-top').empty();
+    }
 
     else if ($("#qContainer").scrollTop() >= 180 && $("#qContainer").scrollTop() < 220){
         var c = 1-($("#qContainer").scrollTop()-180)/39;
         $("#stats-container").css("color","rgba(239, 239, 239,"+ c +")") // " + 1-($("#qContainer").scrollTop()-130)/39 + ")");
         console.log(1-($("#qContainer").scrollTop()-180)/39 );
+        $('#section-top').empty();
     }
-    
+    // else if ($("#qContainer").scrollTop() >= 220 && $("#qContainer").scrollTop() < 240){
+    //     var c = ($("#qContainer").scrollTop()-220)/39;
+    //     $("#qHeader").height(40);
+    //     $("#stats-container").height(0);
+    //     $("#qHeader").css("color", c);
+    //     $("#qHeader").css("blur", "20px");
+
+    // }
     else {
-        
+        getsectionpos(sections);
         $("#qHeader").height(40);
         $("#stats-container").height(0);
         $("#qHeader").css("opacity", "0.9");
