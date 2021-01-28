@@ -79,8 +79,8 @@ function scrollFunction() {
     const sections = $(".template__section");
     // console.log($("#qContainer").scrollTop() );
     getsectionpos(sections);
-    $("#pos").empty();
-    $("#pos").html($("#qContainer").scrollTop());
+    // $("#pos").empty();
+    // $("#pos").html($("#qContainer").scrollTop());
 
     if ($("#qContainer").scrollTop() >= -1000  && $("#qContainer").scrollTop() <180 ) { //
 
