@@ -24,10 +24,13 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
     <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 
+  
 
-    <link rel="static/css/stylesheet" href="style.css">
+
+
+    <link rel="static/css/stylesheet" href="static/css/style.css">
     <script src="static/javascript/script.js"></script>
-
+    <script src="static/javascript/swipe.min.js"></script>
 
 </head>
 
@@ -72,9 +75,7 @@
         <div id="stats-container" style="display:flex; overflow:hidden;flex-direction:row;gap:5px;color: rgba(239, 239, 239, 1);" unselectable="on">
             Driven Senior Consultant acting as manager with 5+ years of experience in management consulting.<br>
             Reliable team member and excellent interpersonal skills field approved in delicate client environments.<br>
-            Successful in delivering sustainable revenue and significant added value for clients in competitive markets.<br>
-            A strong sense of initiative coupled with out of the box creativity.
-            
+           
 
 
         </div>
@@ -100,7 +101,17 @@
             
            
             <div style="display:flex; flex-direction:column">
-                <div style="border-radius: 5px;border:1px dotted rgb(133, 124, 124);margin:1px 5px; padding: 1px 4px;">
+
+                <div id="slider" class="swipe">
+                    <div class="swipe-wrap">
+                      <div>dcqsd</div>
+                      <div>dsq</div>
+                      <div>dsqd</div>
+                    </div>
+                  </div>
+
+
+                <div id="exp1" style="border-radius: 5px;border:1px dotted rgb(133, 124, 124);margin:1px 5px; padding: 1px 4px;" >
                 <span><b>2018 to Present – Senior Consultant<br>CAPCO (Capital Markets Company)</b></span>
                 </div>
                 <div style="padding: 1px 14px;">
@@ -185,6 +196,10 @@
 
 </div>
 
+
+<script>
+    window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+</script>
 
 
 </body>
