@@ -89,6 +89,7 @@ function scrollFunction() {
         $("#qHeader").css("blur", "0px");
         
         $("#stats-container").height(220- $("#qContainer").scrollTop());
+        $("#stats-container").css("color","rgba(239, 239, 239,1)") 
         $('#section-top').empty();
     }
 
@@ -114,3 +115,4 @@ function scrollFunction() {
         $("#qHeader").css("blur", "20px");
     }
 }
+
