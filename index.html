@@ -161,11 +161,24 @@
                     </div>
 
 
-
-                    <div
-                        style="border-radius: 5px;border:1px dotted rgb(133, 124, 124);margin:1px 5px; padding: 1px 4px;">
-                        <span><b>2016 to 2018 – Consultant<br>Capgemini Consulting</b></span>
+                    <div id="mySwipe1" class="swipe">
+                        <div class="swipe-wrap" style="display: flex;flex-direction: column;">
+                            <div style="height: 120px;">
+                                <div id="exp1"
+                                    style="border-radius: 5px;border:1px dotted rgb(133, 124, 124);margin:1px 5px; padding: 1px 4px;">
+                                    <span><b>2016 to 2018 – Consultant<br>Capgemini Consulting</b></span>
+                                </div>
+                            </div>
+                            <div style="margin-top: -120px;">
+                                <button type="button" class="btn btn-primary">Website</button>
+                                <button type="button" class="btn btn-primary">Referals</button>
+                                <button type="button" class="btn btn-primary">Location</button>
+                            </div>
+                        </div>
                     </div>
+
+
+                    
                     <div style="padding: 1px 14px;">
                         <p><b>Relevant client missions :</b></p>
                         <ul>
@@ -309,6 +322,18 @@
 
     <script>
         var element = document.getElementById('mySwipe');
+        window.mySwipe = new Swipe(element, {
+            startSlide: 0,
+            auto: 0,
+            draggable: false,
+            autoRestart: false,
+            continuous: false,
+            disableScroll: true,
+            stopPropagation: true,
+            callback: function (index, element) { },
+            transitionEnd: function (index, element) { }
+        });
+        var element = document.getElementById('mySwipe1');
         window.mySwipe = new Swipe(element, {
             startSlide: 0,
             auto: 0,
