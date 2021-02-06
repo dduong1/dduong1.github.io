@@ -77,23 +77,52 @@ function getsectionpos(sections){
 
 function scrollFunction() {
     const sections = $(".template__section");
-    console.log($("#qContainer").scrollTop() );
+    //console.log($("#qContainer").scrollTop() );
     
     // $("#pos").empty();
     // $("#pos").html($("#qContainer").scrollTop());
+    // $(".arrowdiv").css("visibility","visible") ;
+    
+    if ($("#qContainer").scrollTop() >= 130  && $("#qContainer").scrollTop() <150  ) {
+        
+        var c = ($("#qContainer").scrollTop()-130)/19;
+        console.log(c);
+        $(".arrowdiv").css("opacity", c);
+    }
+    else if ($("#qContainer").scrollTop() >= 150  && $("#qContainer").scrollTop() <100000 ) { 
+        //$(".arrowdiv").css("visibility","visible") 
+    }
+    else{
+        //$(".arrowdiv").css("visibility","hidden") 
+        var c = 1-($("#qContainer").scrollTop()-265)/19;
+        $(".arrowdiv").css("opacity", 0);
+    }
 
-    if ($("#qContainer").scrollTop() >= 150  && $("#qContainer").scrollTop() <265 ) { 
-        $(".arrowdiv").css("visibility","visible") 
+
+
+    // if ($("#qContainer").scrollTop() >= 780  && $("#qContainer").scrollTop() <895 ) { 
+    //     $(".arrowdiv1").css("visibility","visible") 
+    // }
+    // else{
+    //     $(".arrowdiv1").css("visibility","hidden") 
+    // }
+
+    if ($("#qContainer").scrollTop() >= 760  && $("#qContainer").scrollTop() <780  ) {
+        
+        var c = ($("#qContainer").scrollTop()-760)/20;
+        console.log(c);
+        $(".arrowdiv1").css("opacity", c);
+    }
+    else if ($("#qContainer").scrollTop() >= 780  && $("#qContainer").scrollTop() <100000 ) { 
+        //$(".arrowdiv").css("visibility","visible") 
+        //$(".arrowdiv1").css("opacity", 0);
     }
     else{
-        $(".arrowdiv").css("visibility","hidden") 
+        //$(".arrowdiv").css("visibility","hidden") 
+        var c = 1-($("#qContainer").scrollTop()-895)/19;
+        $(".arrowdiv1").css("opacity", 0);
     }
-    if ($("#qContainer").scrollTop() >= 780  && $("#qContainer").scrollTop() <895 ) { 
-        $(".arrowdiv1").css("visibility","visible") 
-    }
-    else{
-        $(".arrowdiv1").css("visibility","hidden") 
-    }
+
 
 
     if ($("#qContainer").scrollTop() >= -1000  && $("#qContainer").scrollTop() <180 ) { //
