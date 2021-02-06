@@ -77,10 +77,24 @@ function getsectionpos(sections){
 
 function scrollFunction() {
     const sections = $(".template__section");
-    // console.log($("#qContainer").scrollTop() );
+    console.log($("#qContainer").scrollTop() );
     
     // $("#pos").empty();
     // $("#pos").html($("#qContainer").scrollTop());
+
+    if ($("#qContainer").scrollTop() >= 150  && $("#qContainer").scrollTop() <265 ) { 
+        $(".arrowdiv").css("visibility","visible") 
+    }
+    else{
+        $(".arrowdiv").css("visibility","hidden") 
+    }
+    if ($("#qContainer").scrollTop() >= 780  && $("#qContainer").scrollTop() <895 ) { 
+        $(".arrowdiv1").css("visibility","visible") 
+    }
+    else{
+        $(".arrowdiv1").css("visibility","hidden") 
+    }
+
 
     if ($("#qContainer").scrollTop() >= -1000  && $("#qContainer").scrollTop() <180 ) { //
 
